@@ -131,28 +131,26 @@ function brainProgression()
     Engine($given, $expected, $question);
 }
 
-function isPrime($num)
-{
-    if ($num < 2 || $num === 4) {
-        return false;
-    }
-
-    if ($num === 2 || $num === 3) {
-        return true;
-    }
-
-    for ($i = 5; $i < $num; $i += 1) {
-        if ($num % $i === 0) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
 function brainPrime()
 {
+    function isPrime($num)
+    {
+        if ($num < 2 || $num === 4) {
+            return false;
+        }
 
+        if ($num === 2 || $num === 3) {
+            return true;
+        }
+
+        for ($i = 5; $i < $num; $i += 1) {
+            if ($num % $i === 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 
     $given = fn() => rand(1, 100);
 
