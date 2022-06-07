@@ -68,7 +68,7 @@ function brainEven()
     Engine($given, $expected, $question);
 }
 
-function gcd(int $a, int $b) : int
+function gcd(int $a, int $b): int
 {
     return ($a % $b) ? gcd($b, $a % $b) : abs($b);
 }
