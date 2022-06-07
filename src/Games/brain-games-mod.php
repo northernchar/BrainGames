@@ -29,6 +29,9 @@ function brainCalc()
             case 3:
                 $operand = '*';
                 break;
+            default:
+                $operand = '+';
+                break;
         }
 
         return ['operation' => $operations[$operand], 'first' => $first, 'second' => $second, 'operand' => $operand];
@@ -65,12 +68,14 @@ function brainEven()
     Engine($given, $expected, $question);
 }
 
+function gcd(int $a, int $b) : int
+{
+    return ($a % $b) ? gcd($b, $a % $b) : abs($b);
+}
+
 function brainGcd()
 {
-    function gcd($a, $b)
-    {
-        return ($a % $b) ? gcd($b, $a % $b) : abs($b);
-    }
+
 
     $given = function () {
         $first = rand(1, 100);
@@ -126,26 +131,28 @@ function brainProgression()
     Engine($given, $expected, $question);
 }
 
-function brainPrime()
+function isPrime($num)
 {
-    function isPrime($num)
-    {
-        if ($num < 2 || $num === 4) {
-            return false;
-        }
+    if ($num < 2 || $num === 4) {
+        return false;
+    }
 
-        if ($num === 2 || $num === 3) {
-            return true;
-        }
-
-        for ($i = 5; $i < $num; $i += 1) {
-            if ($num % $i === 0) {
-                return false;
-            }
-        }
-
+    if ($num === 2 || $num === 3) {
         return true;
     }
+
+    for ($i = 5; $i < $num; $i += 1) {
+        if ($num % $i === 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function brainPrime()
+{
+
 
     $given = fn() => rand(1, 100);
 
