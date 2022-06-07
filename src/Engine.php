@@ -2,8 +2,6 @@
 
 namespace BrainGames\Engine;
 
-require_once __DIR__ . '/../vendor/autoload.php';
-
 use function BrainGames\Cli\greetings;
 use function cli\line;
 use function cli\prompt;

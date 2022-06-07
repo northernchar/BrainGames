@@ -9,8 +9,7 @@ use function BrainGames\Engine\Engine;
 
 function brainCalc()
 {
-    $given = function()
-    {
+    $given = function () {
         $first = rand(1, 10);
         $second = rand(1, 10);
         $operations = [
@@ -35,17 +34,14 @@ function brainCalc()
         return ['operation' => $operations[$operand], 'first' => $first, 'second' => $second, 'operand' => $operand];
     };
 
-    $expected = function($given)
-    {
+    $expected = function ($given) {
         $operation = $given['operation'];
         $first = $given['first'];
         $second = $given['second'];
-        
         return $operation($first, $second);
     };
 
-    $question = function($given)
-    {
+    $question = function ($given) {
         $operand = $given['operand'];
         $first = $given['first'];
         $second = $given['second'];
@@ -60,14 +56,12 @@ function brainEven()
 {
     $given = fn() => rand(1, 100);
 
-    $expected = function($given)
-    {
+    $expected = function ($given) {
         $isEven = $given % 2 === 0;
         return $isEven ? "yes" : "no";
     };
 
     $question = fn($given) => $given;
-    
     Engine($given, $expected, $question);
 }
 
@@ -78,24 +72,21 @@ function brainGcd()
         return ($a % $b) ? gcd($b, $a % $b) : abs($b);
     }
 
-    $given = function()
-    {
+    $given = function () {
         $first = rand(1, 100);
         $second = rand(1, 100);
 
         return [$first, $second];
     };
 
-    $expected = function($given)
-    {
+    $expected = function ($given) {
         $a = $given[0];
         $b = $given[1];
 
         return gcd($a, $b);
     };
 
-    $question = function($given)
-    {
+    $question = function ($given) {
         $a = $given[0];
         $b = $given[1];
 
@@ -107,8 +98,7 @@ function brainGcd()
 
 function brainProgression()
 {
-    $given = function()
-    {
+    $given = function () {
         $length = rand(5, 10);
         $step = rand(1, 9);
         $missedIndex = rand(0, $length - 1);
@@ -143,29 +133,28 @@ function brainPrime()
         if ($num < 2 || $num === 4) {
             return false;
         }
-    
+
         if ($num === 2 || $num === 3) {
             return true;
         }
-    
+
         for ($i = 5; $i < $num; $i += 1) {
             if ($num % $i === 0) {
                 return false;
             }
         }
-    
+
         return true;
     }
 
     $given = fn() => rand(1, 100);
 
-    $expected = function($given)
-    {
+    $expected = function ($given) {
 
         return isPrime($given) ? "yes" : "no";
     };
 
     $question = fn($given) => $given;
-    
+
     Engine($given, $expected, $question);
 }
