@@ -108,11 +108,12 @@ function brainProgression()
         $step = rand(1, 9);
         $missedIndex = rand(0, $length - 1);
         $first = rand(1, 90);
+        $prog = $first;
         $result = [];
 
         for ($i = 0; $i < $length; $i += 1) {
-            $result[] = $i === $missedIndex ? '..' : $first;
-            $first += $step;
+            $result[] = $i === $missedIndex ? '..' : $prog;
+            $prog += $step;
         }
 
         if ($missedIndex !== 0) {

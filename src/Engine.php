@@ -14,9 +14,9 @@ function Engine(?callable $givenFunc, ?callable $expectedFunc, ?callable $questi
     $tries = 3;
 
     for ($i = 0; $i < $tries; $i += 1) {
-        $given = $givenFunc() ?? null;
-        $expected = $expectedFunc($given) ?? null;
-        $question = $questionFunc($given) ?? null;
+        $given = $givenFunc();
+        $expected = $expectedFunc($given);
+        $question = $questionFunc($given);
         line("Question: {$question}");
         $result = prompt("Your answer");
         $isCorrect = $result === "{$expected}";
