@@ -115,6 +115,7 @@ function brainProgression()
         $first = rand(1, 90);
         $prog = $first;
         $result = [];
+        $missedValue = 0;
 
         for ($i = 0; $i < $length; $i += 1) {
             if ($i === $missedIndex) {
