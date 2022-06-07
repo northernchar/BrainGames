@@ -71,7 +71,7 @@ function brainEven()
 function gcd(int $a, int $b): int
 {
     $isGcd = ($a % $b);
-    if ($isGcd) {
+    if ($isGcd !== 0) {
         return gcd($b, $a % $b);
     } else {
         return abs($b);
@@ -122,7 +122,8 @@ function brainProgression()
         }
 
         if ($missedIndex !== 0) {
-            $missedValue = $result[$missedIndex - 1] + $step;
+            $premis = $result[$missedIndex - 1];
+            $missedValue = $premis + $step;
         } else {
             $missedValue = $first;
         }
