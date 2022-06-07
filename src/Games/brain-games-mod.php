@@ -70,7 +70,12 @@ function brainEven()
 
 function gcd(int $a, int $b): int
 {
-    return ($a % $b) ? gcd($b, $a % $b) : abs($b);
+    $isGcd = ($a % $b);
+    if ($isGcd) {
+        return gcd($b, $a % $b);
+    } else {
+        return abs($b);
+    }
 }
 
 function brainGcd()
@@ -134,7 +139,7 @@ function brainProgression()
 
 function brainPrime()
 {
-    function isPrime($num)
+    function isPrime(int $num): bool
     {
         if ($num < 2 || $num === 4) {
             return false;

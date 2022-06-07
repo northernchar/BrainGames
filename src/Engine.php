@@ -6,7 +6,7 @@ use function BrainGames\Cli\greetings;
 use function cli\line;
 use function cli\prompt;
 
-function Engine(?callable $givenFunc, ?callable $expectedFunc, ?callable $questionFunc)
+function Engine(callable $givenFunc, callable $expectedFunc, callable $questionFunc)
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
