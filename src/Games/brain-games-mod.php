@@ -117,15 +117,13 @@ function brainProgression()
         $result = [];
 
         for ($i = 0; $i < $length; $i += 1) {
-            $result[] = $i === $missedIndex ? '..' : $prog;
+            if ($i === $missedIndex) {
+                $result[] = '..';
+                $missedValue = $prog;
+            } else {
+                $result[] = $prog;
+            }
             $prog += $step;
-        }
-
-        if ($missedIndex !== 0) {
-            $premis = $result[$missedIndex - 1];
-            $missedValue = $premis + $step;
-        } else {
-            $missedValue = $first;
         }
 
         return ['progression' => $result, 'missed' => $missedValue];
