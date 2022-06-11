@@ -1,3 +1,5 @@
-"make.exe" �� ���� ����७��� ��� ���譥�
-��������, �ᯮ��塞�� �ணࠬ��� ��� ������ 䠩���.
-
+make.exe --dry-run --always-make --keep-going --print-directory
+make: Entering directory 'c:/Users/purga/Documents/Projects/php-project-lvl1'
+composer install
+make: Leaving directory 'c:/Users/purga/Documents/Projects/php-project-lvl1'
+ 
